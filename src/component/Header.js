@@ -36,7 +36,7 @@ const Header = ()=>{
         style={{minHeight : "50px", backgroundColor : "tan" , "zIndex" : 1 ,
         display : "flex"}}>
 
-        <div style={{fontSize : "30px" , fontFamily : "Impact" , color : "dimgray"}} onClick={toTop}>
+        <div style={{fontSize : "31px" , fontFamily : "Impact" , color : "dimgray"}} onClick={toTop}>
             Commoard
         </div>
         
