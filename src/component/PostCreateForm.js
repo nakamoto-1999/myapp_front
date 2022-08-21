@@ -23,7 +23,7 @@ import { ReloadFunc } from "../context";
         e.preventDefault();
         api.post(`/auth/thread/${props.thread.threadId}/post/create`,{content : content})
         .then(res => {
-            //setContent("");
+            setContent("");
             reloadThread();
             animateScroll.scrollToBottom();
         })

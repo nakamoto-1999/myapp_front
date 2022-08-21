@@ -41,9 +41,9 @@ const App = ()=>{
           <BrowserRouter>
           <Header/>
           <div style={{paddingTop : "182px"}}>
-            <Switch>
-              <Route path={"/login"} component={LoginForm}/>
+            <Switch> 
               <Route exact path={"/"} component={ThreadSelect}/>
+              <Route path={"/login"} component={LoginForm}/>
               <Route path={"/register"} component={UserCreateForm}/>
               <Route path={"/thread/:id"} component={Thread}/>
               <Route path={"/user/:id/edit"} component={UserEditForm}/>

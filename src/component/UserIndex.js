@@ -23,7 +23,7 @@ export const UserIndex = (props)=>{
         <h1 className="text-center">ユーザー一覧</h1>
         <ReloadFunc.Provider value = {loadUsers}>
             {console.log(users)}
-            <UserTable users = {users} loadUsers = {loadUsers}/>
+            <UserTable users = {users}/>
         </ReloadFunc.Provider>
     </div>
 

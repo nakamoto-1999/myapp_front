@@ -1,7 +1,9 @@
 {
   "name": "myapp_front",
   "version": "0.1.0",
+  "homepage": "./",
   "private": true,
+  
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -42,5 +44,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {
+    "babelify": "^10.0.0",
+    "exorcist": "^2.0.0",
+    "watchify": "^4.0.0"
+  },
+  "author": "",
+  "license": "ISC"
 }
