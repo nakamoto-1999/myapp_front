@@ -39,7 +39,6 @@ const App = ()=>{
     {isMouted &&
       <LoginedUser.Provider value={loginUser}>
           <BrowserRouter>
-          <Header/>
           <div style={{paddingTop : "182px"}}>
             <Switch> 
               <Route exact path={"/"} component={ThreadSelect}/>
@@ -51,6 +50,7 @@ const App = ()=>{
               <Route path={"*"} component={NotFound}/>
             </Switch>
           </div>
+          <Header/>
           </BrowserRouter>
       </LoginedUser.Provider>
     }

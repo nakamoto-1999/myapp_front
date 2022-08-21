@@ -33,12 +33,12 @@ function Thread(props){
             <div>
 
                 <div style={{position : "fixed"
-                ,right : "20px",top : "80px", zIndex : 2 }}>
+                ,right : "20px",top : "80px", zIndex : 1 }}>
                     <ToBottomButton/>
                 </div>
 
                 <div style={{position : "fixed"
-                ,left : "20px",top : "80px", zIndex : 2 }}>
+                ,left : "20px",top : "80px", zIndex : 1 }}>
                     <ReloadButton func = {loadThread}/>
                 </div>
                 
