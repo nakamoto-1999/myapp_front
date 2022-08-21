@@ -1,10 +1,11 @@
 
 import { Link } from "react-router-dom";
+import { H } from "./H";
 
 const ThreadIndex = (props)=>{
 
     return<div className="bg-light container p-3">
-        <h2 className="text-center">スレッド一覧</h2>
+        <H content={"スレッド一覧"}/>
         {
             props.threads.map((thread)=>{
                 if(thread.valid)

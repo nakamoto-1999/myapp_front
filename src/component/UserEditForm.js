@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { api } from "../api";
 import { Authorization } from "./Authorization";
 import { AuthUserMatcher } from "./AuthUserMatcher";
+import { H } from "./H";
 import UserForm from "./UserForm";
 
 const UserEditForm = (props)=>{
@@ -9,8 +11,7 @@ const UserEditForm = (props)=>{
     const [user , setUser] = useState(null);
 
     useEffect(()=>{
-        axios.get(`http://localhost:8080/user/${props.match.params.id}`
-         , {withCredentials : true})
+        api.get(`/auth/user/${props.match.params.id}`)
         .then(res => {
             setUser(res.data);
         })
@@ -23,10 +24,13 @@ const UserEditForm = (props)=>{
         <Authorization redirect = "/"/>
         {user !== null &&
             <div>
+                <H content={"登録情報の編集"}/>
                 <AuthUserMatcher userId = {user.userId} redirect = "/"/>
                 <UserForm 
                     submitUrl = {`/auth/user/${user.userId}/update`}
                     httpMethod = "PUT"
+                    pName = {user.name}
+                    pEmail = {user.email}
                 />
             </div>
         }

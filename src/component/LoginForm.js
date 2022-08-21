@@ -7,6 +7,7 @@ import { LoginedUser } from "../App";
 import { useDidUpdateEffect } from "../hook/useDidUpdateEffect.ts";
 import { login } from "../utility/LoginUtility.ts";
 import { isEmpty } from "../utility/ValidationUtility.ts";
+import { H } from "./H";
 import { NoAuthorization } from "./NoAuthorization";
 
 const LoginForm = ()=>{
@@ -61,6 +62,7 @@ const LoginForm = ()=>{
 
     return<div className="container w-75 bg-light p-3">
         <NoAuthorization redirect = "/"/>
+        <H content={"ログイン"}/>
         <form className="form">
             <div className="form-group">
                 <label>Email</label>

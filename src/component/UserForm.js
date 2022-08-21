@@ -12,8 +12,8 @@ const UserForm = (props)=>{
 
     const history = useHistory();
 
-    const [name , setName] = useState("");
-    const [email , setEmail] = useState("");
+    const [name , setName] = useState(props.pName);
+    const [email , setEmail] = useState(props.pEmail);
     const [password , setPassword] = useState("");
     const [passConf , setPassConf] = useState("");
 
@@ -65,6 +65,12 @@ const UserForm = (props)=>{
         
     }
 
+    //初期値へのバリデーション
+    useEffect(() => {
+        !isEmpty(name) && setIsNameValidated(true);
+        !isEmpty(email) &&setIsEmailValidated(true);
+    } , [])
+
     //nameへのバリデーション
     useDidUpdateEffect(() => {
         if(isEmpty(name)){
@@ -87,15 +93,23 @@ const UserForm = (props)=>{
             setErrForEmail("メールアドレス形式で入力してください。");
             return;
         }
-        setIsEmailValidated(true);
-        setErrForEmail("");
+        api.get(`/user/is-email-exist/${email}`)
+        .then(res => {
+            if(res.data){
+                setIsEmailValidated(false);
+                setErrForEmail("このメールアドレスは、既に使用されています。");
+                return;
+            }
+            setIsEmailValidated(true);
+            setErrForEmail("");
+        })
     } , [email]);
 
     //passwordへのバリデーション
     useDidUpdateEffect(() => {
         if(isEmpty(password)){
             setIsPassValidated(false);
-            setErrForPass("パスワードが未入力です。");
+            setErrForPass("確認用パスワードが未入力です。");
             return;
         }
         if(!isHalf(password)){

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { api } from "../api";
 import { LoadUsers, ReloadFunc } from "../context";
 import { Authorization } from "./Authorization"
+import { H } from "./H";
 import { UserTable } from "./UserTable";
 
 export const UserIndex = (props)=>{
@@ -20,7 +21,7 @@ export const UserIndex = (props)=>{
     } , []);
 
     return<div>
-        <h1 className="text-center">ユーザー一覧</h1>
+        <H content={"ユーザー一覧"}/>
         <ReloadFunc.Provider value = {loadUsers}>
             {console.log(users)}
             <UserTable users = {users}/>
