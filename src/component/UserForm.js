@@ -101,6 +101,9 @@ const UserForm = (props)=>{
                 return;
             }
             setIsEmailValidated(true);
+        })
+        .finally(onFinally => {
+            //通信エラーが起きたは、エラーメッセージのみ消去する
             setErrForEmail("");
         })
     } , [email]);
@@ -109,7 +112,7 @@ const UserForm = (props)=>{
     useDidUpdateEffect(() => {
         if(isEmpty(password)){
             setIsPassValidated(false);
-            setErrForPass("確認用パスワードが未入力です。");
+            setErrForPass("パスワードが未入力です。");
             return;
         }
         if(!isHalf(password) || !isOver(password , 8)){
@@ -126,7 +129,7 @@ const UserForm = (props)=>{
 
         if(isEmpty(passConf)){
             setIsPassConfValidated(false);
-            setErrForPassConf("パスワード（確認用）が未入力です。");
+            setErrForPassConf("確認用パスワードが未入力です。");
             return;
         }
 
