@@ -27,28 +27,41 @@ const Header = ()=>{
         history.push("/admin");
     }
 
-    return<header className="fixed-top shadow p-2 text-right" 
-        style={{minHeight : "50px", backgroundColor : "tan" , "zIndex" : 1}}
-    >
-        {loginUser === null?
-        <div>
-            <span style={{marginRight : "16px"}}>
-                <SquareButton value="ログイン" color="primary" onClick = {toLogin}/>
-            </span>
+    const toTop = (e) => {
+        e.preventDefault();
+        history.push("/");
+    }
+
+    return<header className="fixed-top shadow p-2" 
+        style={{minHeight : "50px", backgroundColor : "tan" , "zIndex" : 1 ,
+        display : "flex"}}>
+
+        <div style={{fontSize : "30px" , fontFamily : "Impact" , color : "dimgray"}} onClick={toTop}>
+            Commoard
+        </div>
+        
+        <div style={{margin : "0 0 0 auto"}}>
+            {loginUser !== null?
             <span>
-                <SquareButton value="新規登録" color="success" onClick = {toRegister}/>
+                {loginUser.role.name === "ADMIN" &&
+                    <span style={{"marginRight" : "32px"}}>
+                        <SquareButton value="管理画面" color="info" onClick = {toUserAdmin}/>
+                    </span>
+                }
+                <UserMenu/>
             </span>
-        </div>
-        :
-        <div>
-            {loginUser.role.name === "ADMIN" &&
-                <span style={{"marginRight" : "32px"}}>
-                    <SquareButton value="管理画面" color="info" onClick = {toUserAdmin}/>
+            :
+            <span>
+                <span style={{marginRight : "16px"}}>
+                    <SquareButton value="ログイン" color="primary" onClick = {toLogin}/>
                 </span>
+                <span>
+                    <SquareButton value="新規登録" color="success" onClick = {toRegister}/>
+                </span>
+            </span>
             }
-            <UserMenu/>
         </div>
-        }
+        
         {loginUser !== null && !loginUser.permitted &&
             <div className="bg-light text-danger text-center w-100"
                 style={{"position" : "absolute" , "left" : "0px" , "top" : "55px" , "zIndex" : 2}}>
