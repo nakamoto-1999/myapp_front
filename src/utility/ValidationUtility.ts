@@ -9,6 +9,9 @@ export const isHalf = (val : string) : boolean => {
     return regExp.test(val);
 }
 
+export const isOver = (val : String , minLength : Number) : boolean => {
+    return val.length >= minLength;
+}
 
 export const isEmailFormat = (val : string) : boolean => {
     let regExp : RegExp = new RegExp("^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]*.[A-Za-z0-9]*$");

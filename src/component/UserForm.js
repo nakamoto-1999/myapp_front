@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { api } from "../api";
 import { useDidUpdateEffect } from "../hook/useDidUpdateEffect.ts";
 import { login } from "../utility/LoginUtility.ts";
-import { isEmailFormat, isEmpty, isHalf } from "../utility/ValidationUtility.ts";
+import { isEmailFormat, isEmpty, isHalf , isOver } from "../utility/ValidationUtility.ts";
 
 
 const UserForm = (props)=>{
@@ -112,9 +112,9 @@ const UserForm = (props)=>{
             setErrForPass("確認用パスワードが未入力です。");
             return;
         }
-        if(!isHalf(password)){
+        if(!isHalf(password) || !isOver(password , 8)){
             setIsPassValidated(false);
-            setErrForPass("パスワードは半角英数字記号で入力してください。");
+            setErrForPass("パスワードは、8文字以上の半角英数字記号で入力してください。");
             return;
         }
         setIsPassValidated(true);
