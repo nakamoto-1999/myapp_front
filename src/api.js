@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL : "https://commoard-api.herokuapp.com" ,
+    baseURL : process.env.REACT_APP_API_BASE_URL ,
     withCredentials : true
 });
