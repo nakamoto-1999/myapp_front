@@ -95,16 +95,19 @@ const UserForm = (props)=>{
         }
         api.get(`/user/is-email-exist/${email}`)
         .then(res => {
+            //メールアドレスが存在するとき
             if(res.data){
                 setIsEmailValidated(false);
                 setErrForEmail("このメールアドレスは、既に使用されています。");
                 return;
             }
             setIsEmailValidated(true);
+            setErrForEmail("");
         })
-        .finally(onFinally => {
+        .catch(err => {
             //通信エラーが起きたは、エラーメッセージのみ消去する
             setErrForEmail("");
+            window.alert("通信エラーが発生しました。");
         })
     } , [email]);
 
