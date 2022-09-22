@@ -18,7 +18,11 @@ function Thread(props){
     const loadThread = ()=>{
         api.get(`/thread/${props.match.params.id}`)
         .then(res => {
-            setThread(res.data);
+            //データが無効なものであるならば404エラーに遷移
+            res.data.valid ?
+                setThread(res.data)
+            :
+                window.location.replace("not-found")
         })
         .catch(err => {
             //スレッドの取得に失敗した場合は404エラーに遷移
