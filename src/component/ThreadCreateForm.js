@@ -49,7 +49,7 @@ export const ThreadCreateForm = (props)=>{
             </button>
         </div>
             
-        <div className="w-100" style={{position : "fixed" ,left : "0px",top : "200px" ,zIndex : 2}}>
+        <div className="w-100 fixed-bottom" style={{zIndex : 2}}>
             <section {...getCollapseProps()}>
 
                     <div className="container rounded" style={{backgroundColor : "wheat"}}>
