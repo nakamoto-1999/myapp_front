@@ -5,7 +5,7 @@ import { H } from "./H";
 const ThreadIndex = (props)=>{
 
     return<div className="bg-light container p-3">
-        <H content={"スレッド一覧"}/>
+        <H content={"Threads"}/>
         {
             props.threads.map((thread)=>{
                 if(thread.valid)
