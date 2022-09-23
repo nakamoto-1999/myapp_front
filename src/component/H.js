@@ -1,7 +1,7 @@
 
 export const H = (props)=>{
-    return<h2 className="text-center text-secondary">
+    return<h4 className="text-center text-secondary">
         {props.content}
-    </h2>
+    </h4>
 }
 

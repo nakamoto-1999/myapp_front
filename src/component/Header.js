@@ -36,7 +36,7 @@ const Header = ()=>{
         style={{minHeight : "50px", backgroundColor : "tan" , "zIndex" : 1 ,
         display : "flex"}}>
 
-        <div style={{fontSize : "30px" , fontFamily : "Impact" , color : "dimgray"}} onClick={toTop}>
+        <div style={{fontSize : "20px" , fontFamily : "Impact" , color : "dimgray"}} onClick={toTop}>
             Commoard
         </div>
         
@@ -44,19 +44,19 @@ const Header = ()=>{
             {loginUser !== null?
             <span>
                 {loginUser.role.name === "ADMIN" &&
-                    <span style={{"marginRight" : "32px"}}>
-                        <SquareButton value="管理画面" color="info" onClick = {toUserAdmin}/>
+                    <span style={{"marginRight" : "16px"}}>
+                        <SquareButton value="Admin" color="info" onClick = {toUserAdmin}/>
                     </span>
                 }
                 <UserMenu/>
             </span>
             :
             <span>
-                <span style={{marginRight : "16px"}}>
-                    <SquareButton value="ログイン" color="primary" onClick = {toLogin}/>
+                <span style={{marginRight : "5px"}}>
+                    <SquareButton value="Login" color="primary" onClick = {toLogin}/>
                 </span>
                 <span>
-                    <SquareButton value="新規登録" color="success" onClick = {toRegister}/>
+                    <SquareButton value="Register" color="success" onClick = {toRegister}/>
                 </span>
             </span>
             }

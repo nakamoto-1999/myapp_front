@@ -21,7 +21,7 @@ export const UserIndex = (props)=>{
     } , []);
 
     return<div>
-        <H content={"ユーザー一覧"}/>
+        <H content={"Users"}/>
         <ReloadFunc.Provider value = {loadUsers}>
             {console.log(users)}
             <UserTable users = {users}/>

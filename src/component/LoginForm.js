@@ -60,9 +60,9 @@ const LoginForm = ()=>{
         login(email , password);
     }
 
-    return<div className="container w-75 bg-light p-3">
+    return<div className="container w-100 bg-light p-3">
         <NoAuthorization redirect = "/"/>
-        <H content={"ログイン"}/>
+        <H content={"Login"}/>
         <form className="form">
             <div className="form-group">
                 <label>Email</label>

@@ -3,9 +3,9 @@ import { NoAuthorization } from "./NoAuthorization";
 import UserForm from "./UserForm";
 
 const UserCreateForm = ()=>{
-    return<div className="container w-75 bg-light p-3">
+    return<div className="container w-100 bg-light p-3">
         <NoAuthorization redirect = "/"/>
-        <H content={"新規登録"}/>
+        <H content={"Register"}/>
         <UserForm 
             submitUrl={"/user/create"}
             httpMethod = {"POST"}

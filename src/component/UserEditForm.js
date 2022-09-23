@@ -25,11 +25,11 @@ const UserEditForm = (props)=>{
         });
     } , []);
 
-    return<div className="container w-75 bg-light p-3">
+    return<div className="container w-100 bg-light p-3">
         <Authorization redirect = "/"/>
         {user !== null &&
             <div>
-                <H content={"登録情報の編集"}/>
+                <H content={"Edit"}/>
                 <AuthUserMatcher userId = {user.userId} redirect = "/"/>
                 <UserForm 
                     submitUrl = {`/auth/user/${user.userId}/update`}

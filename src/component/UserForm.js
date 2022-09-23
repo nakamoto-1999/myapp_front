@@ -151,21 +151,21 @@ const UserForm = (props)=>{
     return<div>
         <form className="form">
             <div className="form-group">
-                <label>ユーザー名</label>
+                <label>name</label>
                 <input className="form-control" onChange={changeName} value={name}/>
                 <div className="text-danger">
                     {errForName}
                 </div>
             </div>
             <div className="form-group">
-                <label>メールアドレス</label>
+                <label>Email</label>
                 <input className="form-control" onChange={changeEmail} value={email}/>
                 <div className="text-danger">
                     {errForEmail}
                 </div>
             </div>
             <div className="form-group">
-                <label>パスワード</label>
+                <label>Password</label>
                 <input type="password" className="form-control" onChange={changePassword}
                 value={password}/>
                 <div className="text-danger">
@@ -173,7 +173,7 @@ const UserForm = (props)=>{
                 </div>
             </div>
             <div className="form-group">
-                <label>パスワード（確認用）</label>
+                <label>Confirm password</label>
                 <input type="password" className="form-control" onChange={changePassConf}
                 value={passConf}/>
                 <div className="text-danger">
