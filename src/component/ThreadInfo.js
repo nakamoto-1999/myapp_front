@@ -49,11 +49,11 @@ const ThreadInfo = (props)=>{
                     <div style={{lineHeight : "30px" , letterSpacing : "2px"}}>
                         <strong>{props.thread.title}</strong>
                     </div>
-
                 </div>
+
                 {
                     props.thread.posts.map((post , index)=>{
-                        if(post.valid){
+                        if(!post.deleted){
                             return <Post post = {post} index = {index + 1}/>;
                         }
                     })

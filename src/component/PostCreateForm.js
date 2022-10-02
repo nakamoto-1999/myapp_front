@@ -36,7 +36,7 @@ import { ReloadFunc } from "../context";
         <form className="form">
                 <div className="form-group">
                     <textarea id="content" className="form-control" onChange={changeContent}
-                        style={{minHeight : "120px"}} value={content} 
+                        style={{minHeight : "90px"}} value={content} 
                         disabled={loginUser !== null && !loginUser.permitted}
                     />
                 </div>

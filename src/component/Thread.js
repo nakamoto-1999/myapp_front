@@ -18,8 +18,9 @@ function Thread(props){
     const loadThread = ()=>{
         api.get(`/thread/${props.match.params.id}`)
         .then(res => {
+            console.log(res.data);
             //データが無効なものであるならば404エラーに遷移
-            res.data.valid ?
+            !res.data.deleted ?
                 setThread(res.data)
             :
                 window.location.replace("not-found")
@@ -54,6 +55,9 @@ function Thread(props){
                     
                     {loginUser !== null &&
                         <div className="fixed-bottom p-3" style={{backgroundColor : "lemonchiffon"}}>
+                            <div style={{fontSize : "12px" , marginBottom : "10px", color : "grey"}}>
+                                スレッドは、{thread.finishAt}頃に削除されます。
+                            </div>
                             <div className="container w-100">
                                 <PostCreateForm thread={thread}/>
                             </div>

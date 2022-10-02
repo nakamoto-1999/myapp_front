@@ -13,7 +13,7 @@ export const UserTable = (props)=>{
                     <th>Name</th>
                     <th>CreatedAt</th>
                     <th>UpdatedAt</th>
-                    <th>Valid</th>
+                    <th>Deleted</th>
                     <th></th>
                 </tr>
             </thead>

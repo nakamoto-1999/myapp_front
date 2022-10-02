@@ -8,7 +8,7 @@ const ThreadIndex = (props)=>{
         <H content={"Threads"}/>
         {
             props.threads.map((thread)=>{
-                if(thread.valid)
+                if(!thread.deleted)
                     return<div className="p-2 position-relative" style={{minHeight : "100px", borderTop : "1px solid silver"}}> 
                         <div>
                             <strong style={{"fontSize" : "20px"}}>
