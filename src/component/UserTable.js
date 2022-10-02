@@ -29,11 +29,7 @@ export const UserTable = (props)=>{
                         <td>{user.createdAt}</td>
                         <td>{user.updatedAt}</td>
                         <td>
-                            {user.valid ?
-                                "有効"
-                            :
-                                "無効"
-                            }
+                            {user.deleted &&"削除済み"}
                         </td>
                         <td><UserPermitButton user={user}/></td>
                     </tr>
