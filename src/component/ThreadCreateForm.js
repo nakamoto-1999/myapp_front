@@ -20,16 +20,35 @@ export const ThreadCreateForm = (props)=>{
 
     const history = useHistory();
 
-    const [title , setTitle] = useState("");
+    const [overview , setOverveiw] = useState("");
+    const [point , setPoint] = useState("");
+    const [red , setRed] = useState("");
+    const [blue , setBlue] = useState("");
 
-    const changeFormDataTitle = (e)=>{
+    const changeOverview = (e)=>{
         e.preventDefault();
-        setTitle(e.target.value);
+        setOverveiw(e.target.value);
+    }
+
+    const changePoint = (e) => {
+        e.preventDefault();
+        setPoint(e.target.value);
+    }
+
+    const changeRed = (e) => {
+        e.preventDefault();
+        setRed(e.target.value);
+    }
+
+    const changeBlue = (e) => {
+        e.preventDefault();
+        setBlue(e.target.value);
     }
 
     const submit = (e)=>{
         e.preventDefault();
-        api.post("/auth/thread/create" , {title : title})
+        api.post("/auth/thread/create" , 
+        {overview : overview , point : point , red : red , blue : blue})
         .then(res => {
             const createdThread = res.data;
             history.push(`thread/${createdThread.threadId}`);
@@ -58,14 +77,33 @@ export const ThreadCreateForm = (props)=>{
                             <BsFillXSquareFill size = "30"/>
                         </span>
 
-                        <form className="form p-4">
+                        <form className="form p-4" disabled={loginUser !== null && !loginUser.permitted}>
                             <div className="form-group">
+                                <label style={{color : "black"}}>
+                                    <strong>議題の概要</strong>
+                                </label>
                                 <textarea 
-                                    id="thread-title" className="form-control" onChange={changeFormDataTitle}
-                                    style = {{minHeight : "120px"}}  disabled={loginUser !== null && !loginUser.permitted}
+                                    id="overview" className="form-control" onChange={changeOverview}
+                                    style = {{minHeight : "100px"}} value = {overview}
                                 />
+                                <label style={{color : "black"}}>
+                                    <strong>争点</strong>
+                                </label>
+                                <textarea 
+                                    id="point" className="form-control" onChange={changePoint}
+                                    style = {{minHeight : "100px"}} value = {point}
+                                />
+                                <label style = {{color : "red"}}>
+                                    <strong>赤の立場</strong>
+                                </label>
+                                <input id="red" className="form-control" onChange={changeRed} value = {red} style = {{color : "red"}}/>
+                                <label style = {{color : "blue"}}>
+                                    <strong>青の立場</strong>
+                                </label>
+                                <input id="blue" className="form-control" onChange={changeBlue} value = {blue} style = {{color : "blue"}}/>
                             </div>
-                            <button className="btn btn-primary w-25" onClick={submit} disabled={title === ""}>
+                            <button className="btn btn-primary w-25" onClick={submit} 
+                                disabled={(overview === "" || point === "" || red === "" || blue === "")}>
                                 <BiSend size={25}/>
                             </button>
                         </form>

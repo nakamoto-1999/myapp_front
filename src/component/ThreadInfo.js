@@ -47,7 +47,7 @@ const ThreadInfo = (props)=>{
                     </div>
                     
                     <div style={{lineHeight : "30px" , letterSpacing : "2px"}}>
-                        <strong>{props.thread.title}</strong>
+                        <strong>{props.thread.overview}</strong>
                     </div>
                 </div>
 

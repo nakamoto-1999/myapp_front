@@ -1,28 +1,39 @@
 
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { H } from "./H";
+import { Threads } from "./ThreadSelect";
 
 const ThreadIndex = (props)=>{
 
+    const threads = useContext(Threads);
+
     return<div className="bg-light container p-3">
-        <H content={"Threads"}/>
         {
-            props.threads.map((thread)=>{
+            threads.map((thread)=>{
                 if(!thread.deleted)
                     return<div className="p-2 position-relative" style={{minHeight : "100px", borderTop : "1px solid silver"}}> 
                         <div>
                             <strong style={{"fontSize" : "20px"}}>
-                                {thread.title.length > 20 ?
+                                {thread.overview.length > 20 ?
                                     <span>
-                                        {thread.title.slice( 0, 20 )}...
+                                        {thread.overview.slice( 0, 20 )}...
                                     </span>
                                     :
-                                        thread.title
+                                        thread.overview
                                 }
                             </strong>
                             &ensp;&ensp;&ensp;
                             <span>
                                 by {thread.user.name}
+                            </span>
+                            &emsp;
+                            <span>
+                                {thread.concluded && thread.concludedColor !== null&&
+                                    <strong style={{color : thread.concludedColor.name,fontSize : "12px"}}>
+                                        判決済み
+                                    </strong>
+                                }
                             </span>
                         </div>
                         <br/><br/>

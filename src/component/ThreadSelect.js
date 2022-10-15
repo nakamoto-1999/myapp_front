@@ -2,18 +2,20 @@
 import ThreadForm, { ThreadCreateForm } from "./ThreadCreateForm";
 import ThreadTable from "./ThreadIndex";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import {BsArrowCounterclockwise, BsPlus } from "react-icons/bs";
 
 import { LoginedUser } from "../App";
 import { Link } from "react-router-dom";
 
 
-import ReloadButton from "./ReloadButton";
 import { api } from "../api";
 import ThreadIndex from "./ThreadIndex";
 import { ReloadFunc } from "../context";
 import { H } from "./H";
+
+export const Threads = createContext([]);
+export const LoadThreads = createContext(() => {});
 
 const ThreadSelect = ()=>{
 
@@ -30,16 +32,14 @@ const ThreadSelect = ()=>{
     
     useEffect(loadThreads, []);
 
-
     return<div>
+        <H content={"スレッド一覧"}/>
 
-        <div style={{paddingBottom : "150px"}}>
-            <ThreadIndex threads={threads}/>
-        </div>
-
-        <div style={{position : "fixed" ,left : "10px", bottom : "20px", zIndex : 2}}>
-            <ReloadButton func = {loadThreads}/>
-        </div>
+        <Threads.Provider value={threads}>
+            <div style={{paddingBottom : "150px"}}>
+                <ThreadIndex/>
+            </div>
+        </Threads.Provider>
 
         {loginUser !== null &&
             <ThreadCreateForm/>

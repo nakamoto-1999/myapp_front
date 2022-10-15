@@ -7,9 +7,9 @@ import { api } from "../api";
 import { LoginedUser } from "../App";
 import { ReloadFunc } from "../context";
 
+const Thread = createContext(null);
 
-
-function Thread(props){
+export const ThreadPage = (props) => {
 
     const loginUser = useContext(LoginedUser);
 
@@ -56,7 +56,7 @@ function Thread(props){
                     {loginUser !== null &&
                         <div className="fixed-bottom p-3" style={{backgroundColor : "lemonchiffon"}}>
                             <div style={{fontSize : "12px" , marginBottom : "10px", color : "grey"}}>
-                                スレッドは、{thread.finishAt}頃に削除されます。
+                                スレッドは、{thread.finishAt}頃に閉鎖されます。
                             </div>
                             <div className="container w-100">
                                 <PostCreateForm thread={thread}/>
@@ -66,10 +66,7 @@ function Thread(props){
 
                 </ReloadFunc.Provider>
             </div>
-
-            
         }
     </div>
 }
 
-export default Thread;
