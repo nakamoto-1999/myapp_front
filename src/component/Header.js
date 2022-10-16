@@ -36,8 +36,8 @@ const Header = ()=>{
         style={{minHeight : "50px", backgroundColor : "tan" , "zIndex" : 1 ,
         display : "flex"}}>
 
-        <div style={{fontSize : "20px" , fontFamily : "Impact" , color : "dimgray"}} onClick={toTop}>
-            Commoard
+        <div style={{fontSize : "20px" , fontFamily : "Kokoro" , color : "maroon"}} onClick={toTop}>
+            訴訟ごっこ
         </div>
         
         <div style={{margin : "0 0 0 auto"}}>

@@ -2,7 +2,7 @@ import { BsTrashFill } from "react-icons/bs"
 
 const DeleteButton = (props)=>{
 
-    return<span onClick={props.onClick}>
+    return<span className="text-secondary" onClick={props.onClick}>
         <BsTrashFill size={16}/>
     </span>
 

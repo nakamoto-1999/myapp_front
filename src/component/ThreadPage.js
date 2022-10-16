@@ -7,7 +7,8 @@ import { api } from "../api";
 import { LoginedUser } from "../App";
 import { ReloadFunc } from "../context";
 
-const Thread = createContext(null);
+export const Thread = createContext(null);
+export const LoadThread = createContext(()=>{});
 
 export const ThreadPage = (props) => {
 
@@ -33,7 +34,7 @@ export const ThreadPage = (props) => {
 
     useEffect(loadThread, []);
 
-    return<div>
+    return<div className = "container" style={{paddingBottom : "350px"}}>
         {thread !== null &&
             <div>
 
@@ -47,24 +48,18 @@ export const ThreadPage = (props) => {
                     <ReloadButton func = {loadThread}/>
                 </div>
                 
-                <ReloadFunc.Provider value={loadThread}>
-
-                    <div className = "container" style={{paddingBottom : "350px"}}>
-                        <ThreadInfo thread = {thread}/>
-                    </div>
-                    
-                    {loginUser !== null &&
-                        <div className="fixed-bottom p-3" style={{backgroundColor : "lemonchiffon"}}>
-                            <div style={{fontSize : "12px" , marginBottom : "10px", color : "grey"}}>
-                                スレッドは、{thread.finishAt}頃に閉鎖されます。
+                <Thread.Provider value={thread}>
+                    <LoadThread.Provider value={loadThread}>
+                        <ThreadInfo/>
+                        {loginUser !== null &&
+                            <div className="fixed-bottom p-3" style={{backgroundColor : "lemonchiffon"}}>
+                                <div className="container w-100">
+                                    <PostCreateForm thread={thread}/>
+                                </div>
                             </div>
-                            <div className="container w-100">
-                                <PostCreateForm thread={thread}/>
-                            </div>
-                        </div>
-                    }
-
-                </ReloadFunc.Provider>
+                        }
+                    </LoadThread.Provider>
+                </Thread.Provider>
             </div>
         }
     </div>

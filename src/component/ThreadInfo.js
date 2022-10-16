@@ -7,13 +7,16 @@ import { api } from "../api";
 import { LoginedUser } from "../App";
 import DeleteButton from "./DeleteButton";
 import Post from "./Post";
+import { Thread } from "./ThreadPage";
 
 const ThreadInfo = (props)=>{
 
     const loginUser = useContext(LoginedUser);
 
+    const thread = useContext(Thread);
+
     const deleteThread = ()=>{
-        api.delete(`/auth/thread/${props.thread.threadId}/delete`)
+        api.delete(`/auth/thread/${thread.threadId}/delete`)
         .then(res => {
             window.location.replace("/");
         })
@@ -23,36 +26,51 @@ const ThreadInfo = (props)=>{
     }
 
     return<div style={{"whiteSpace" : "pre-wrap"}}>
-        {props.thread !== null &&
+        {thread !== null &&
             <div>
-                <div className="p-3 rounded" style={{backgroundColor : "lavender" , minHeight : "100px" , marginBottom : "10px"}}>
+                <div className="p-3 rounded bg-light" style={{ minHeight : "100px" , marginBottom : "10px"}}>
                     
-                    <div className="text-secondary" style={{marginBottom : "25px"}}>
+                    <div style={{marginBottom : "25px"}}>
                         <span>
                             {loginUser !== null && loginUser.role.name === "ADMIN" ?
-                                <Link to = {`/admin/user/${props.thread.user.userId}`}>
-                                    {props.thread.user.name}
+                                <Link to = {`/admin/user/${thread.user.userId}`} style={{color : "black" }}>
+                                    {thread.user.name}
                                 </Link>
                             :
-                                props.thread.user.name
+                                thread.user.name
                             }
                         </span>
                         &emsp;
-                        <span>{props.thread.createdAt}</span>
+                        <span>{thread.createdAt}</span>
                         &emsp;
                         {loginUser !== null &&
-                        (loginUser.role.name === "ADMIN" || loginUser.userId === props.thread.user.userId)&&
+                        (loginUser.role.name === "ADMIN" || loginUser.userId === thread.user.userId)&&
+                         !thread.closed && !thread.concluded &&
                             <DeleteButton onClick = {deleteThread}/>
                         }
                     </div>
                     
                     <div style={{lineHeight : "30px" , letterSpacing : "2px"}}>
-                        <strong>{props.thread.overview}</strong>
+                        <p>
+                            {thread.overview}
+                        </p>
+                        <p>
+                            <strong>{thread.point}</strong>
+                        </p>
+                        <br/>
+                        <p style={{fontSize : "20px"}}>
+                            <span style={{color : "red"}}>
+                                赤：<strong>{thread.red}</strong>
+                            </span>
+                            &emsp;
+                            <span style={{color : "blue"}}>
+                                青：<strong>{thread.blue}</strong>
+                            </span>
+                        </p>
                     </div>
                 </div>
 
-                {
-                    props.thread.posts.map((post , index)=>{
+                {thread.posts.map((post , index)=>{
                         if(!post.deleted){
                             return <Post post = {post} index = {index + 1}/>;
                         }
