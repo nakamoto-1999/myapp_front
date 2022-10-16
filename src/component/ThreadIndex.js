@@ -30,8 +30,8 @@ const ThreadIndex = (props)=>{
                             &emsp;
                             <span>
                                 {thread.concluded && thread.concludedColor !== null&&
-                                    <strong style={{color : thread.concludedColor.name,fontSize : "12px"}}>
-                                        判決済み
+                                    <strong style={{color : thread.concludedColor.name,fontSize : "16px"}}>
+                                        評決済み
                                     </strong>
                                 }
                             </span>

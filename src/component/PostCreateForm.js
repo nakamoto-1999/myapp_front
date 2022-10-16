@@ -48,17 +48,20 @@ import { LoadThread, Thread } from "./ThreadPage";
     }
 
     return<div>
+    <label>レスの投稿</label>
     {thread !== null && loginUser !== null &&
-        <form className="form" disabled={loginUser.permitted}>
+        <form className="form">
                 <div className="form-group">
                     {thread.user.userId !== loginUser.userId &&
-                        <select className="form-control" onChange={changeColorId}>
+                        <select className="form-control" onChange={changeColorId}
+                        disabled={!loginUser.permitted || thread.closed}>
                             <option className="bg-danger" value={2}>赤</option>
                             <option className="bg-primary" value={3}>青</option>
                         </select>
                     }
                     <textarea id="content" className="form-control" onChange={changeContent}
-                        style={{minHeight : "90px"}} value={content} 
+                        style={{minHeight : "90px"}} value={content}
+                        disabled={!loginUser.permitted || thread.closed}
                     />
                 </div>
                 <button className="btn btn-primary w-25" onClick={submit} 

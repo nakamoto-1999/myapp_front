@@ -29,7 +29,9 @@ const Post = (props) =>{
     {thread !== null && post !== null &&
         <div>
             <div style={{marginBottom : "25px", 
-            color : post.color !== null && post.color.name}}>
+                color : post.color !== null && post.color.name,
+                opacity : 0.7
+            }}>
                 <span>
                     No.{props.index}
                 </span>&emsp;
@@ -50,15 +52,14 @@ const Post = (props) =>{
                     {post.createdAt}
                 </span>&emsp;
                 {loginUser !== null &&
-                (loginUser.role.name === "ADMIN" || loginUser.userId === props.post.user.userId)&&
+                (loginUser.role.name === "ADMIN" || loginUser.userId === post.user.userId)&&
+                !thread.closed && !thread.concluded &&
                     <DeleteButton onClick = {deletePost}/>
                 }
             </div>
             
             <div style={{lineHeight : "30px" ,letterSpacing : "2px"}}>
-                <strong>
-                    {post.content}
-                </strong>
+                {post.content}
             </div>
         </div>
     }

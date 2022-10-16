@@ -68,7 +68,7 @@ export const ThreadCreateForm = (props)=>{
             </button>
         </div>
             
-        <div className="w-100 fixed-bottom" style={{zIndex : 2}}>
+        <div className="w-100 fixed-bottom" style={{zIndex : 1}}>
             <section {...getCollapseProps()}>
 
                     <div className="container rounded" style={{backgroundColor : "wheat"}}>
@@ -94,11 +94,11 @@ export const ThreadCreateForm = (props)=>{
                                     style = {{minHeight : "100px"}} value = {point}
                                 />
                                 <label style = {{color : "red"}}>
-                                    <strong>赤の立場</strong>
+                                    <strong>赤</strong>
                                 </label>
                                 <input id="red" className="form-control" onChange={changeRed} value = {red} style = {{color : "red"}}/>
                                 <label style = {{color : "blue"}}>
-                                    <strong>青の立場</strong>
+                                    <strong>青</strong>
                                 </label>
                                 <input id="blue" className="form-control" onChange={changeBlue} value = {blue} style = {{color : "blue"}}/>
                             </div>

@@ -43,21 +43,26 @@ export const ThreadPage = (props) => {
                     <ToBottomButton/>
                 </div>
 
-                <div style={{position : "fixed"
-                ,left : "20px",top : "80px", zIndex : 1 }}>
-                    <ReloadButton func = {loadThread}/>
-                </div>
+                {!thread.closed &&
+                    <div style={{position : "fixed"
+                    ,left : "20px",top : "80px", zIndex : 1 }}>
+                        <ReloadButton func = {loadThread}/>
+                    </div>
+                }
                 
                 <Thread.Provider value={thread}>
                     <LoadThread.Provider value={loadThread}>
                         <ThreadInfo/>
-                        {loginUser !== null &&
-                            <div className="fixed-bottom p-3" style={{backgroundColor : "lemonchiffon"}}>
-                                <div className="container w-100">
-                                    <PostCreateForm thread={thread}/>
+                        <div className="container w-100 fixed-bottom p-3" style={{backgroundColor : "lemonchiffon"}}>
+                            {loginUser !== null && 
+                                <div>
+                                    {!thread.closed && <PostCreateForm/>}
+                                    {!thread.concluded && loginUser.userId === thread.user.userId &&
+                                        <div>評決フォーム</div>
+                                    }
                                 </div>
-                            </div>
-                        }
+                            }
+                        </div>
                     </LoadThread.Provider>
                 </Thread.Provider>
             </div>

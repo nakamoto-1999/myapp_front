@@ -12,7 +12,6 @@ import { Thread } from "./ThreadPage";
 const ThreadInfo = (props)=>{
 
     const loginUser = useContext(LoginedUser);
-
     const thread = useContext(Thread);
 
     const deleteThread = ()=>{
@@ -28,9 +27,8 @@ const ThreadInfo = (props)=>{
     return<div style={{"whiteSpace" : "pre-wrap"}}>
         {thread !== null &&
             <div>
-                <div className="p-3 rounded bg-light" style={{ minHeight : "100px" , marginBottom : "10px"}}>
-                    
-                    <div style={{marginBottom : "25px"}}>
+                <div className="p-3 rounded bg-light" style={{ minHeight : "100px" , marginBottom : "10px"}}>        
+                    <div style={{marginBottom : "25px", opacity : 0.7}}>
                         <span>
                             {loginUser !== null && loginUser.role.name === "ADMIN" ?
                                 <Link to = {`/admin/user/${thread.user.userId}`} style={{color : "black" }}>
@@ -49,7 +47,6 @@ const ThreadInfo = (props)=>{
                             <DeleteButton onClick = {deleteThread}/>
                         }
                     </div>
-                    
                     <div style={{lineHeight : "30px" , letterSpacing : "2px"}}>
                         <p>
                             {thread.overview}
@@ -67,6 +64,13 @@ const ThreadInfo = (props)=>{
                                 青：<strong>{thread.blue}</strong>
                             </span>
                         </p>
+                        <div className = "text-muted" style={{fontSize : "15px"}}>
+                            {thread.closed ? 
+                                    <div>閉鎖済みのスレッドです。</div>
+                                        :
+                                    <div>このスレッドは、{thread.finishAt}頃に閉鎖されます。</div>
+                            }
+                        </div>
                     </div>
                 </div>
 
@@ -76,6 +80,33 @@ const ThreadInfo = (props)=>{
                         }
                     })
                 }
+
+            {thread.concluded && thread.concludedColor !== null && thread.concludedReason !== null &&
+                <div className="p-3 rounded bg-light" style={{ minHeight : "100px"}}>
+                    <div style={{lineHeight : "30px" , letterSpacing : "2px"}}>
+                        <p style={{fontSize : "25px" , color : thread.concludedColor.name}}>
+                            <strong>
+                                このスレッドには
+                                    {
+                                        thread.concludedColor.colorId === 2 && <span>赤</span> ||
+                                        thread.concludedColor.colorId === 3 && <span>青</span>
+                                    }
+                                
+                                評決が下されました。
+                            </strong>
+                        </p>
+                        <p>
+                            <div>
+                                <strong>（評決理由）</strong>
+                            </div>
+                            <div>
+                                {thread.conclusionReason}
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            }
+
             </div>
         }
     </div>;
