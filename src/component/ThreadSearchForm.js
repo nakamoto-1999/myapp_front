@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BsSearch } from "react-icons/bs";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { api } from "../api";
 
@@ -28,7 +29,7 @@ export const ThreadSearchForm = (props)=>{
             <div className="form-group">
                 <button className="form-control btn btn-primary" onClick={submit}
                 disabled={keyword === ""}>
-                    検索
+                    <BsSearch/>
                 </button>
             </div>
         </form>

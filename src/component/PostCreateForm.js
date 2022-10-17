@@ -39,7 +39,7 @@ import { LoadThread, Thread } from "./ThreadPage";
         e.preventDefault();
         api.post(`/auth/thread/${thread.threadId}/post/create`,{colorId : colorId ,content : content})
         .then(res => {
-            setContent("");
+            //setContent("");
             loadThread();
             animateScroll.scrollToBottom();
         })
