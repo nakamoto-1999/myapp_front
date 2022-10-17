@@ -17,6 +17,7 @@ import { Admin } from './component/Admin';
 import { TopPage } from './component/TopPage';
 import { ThreadPage } from './component/ThreadPage';
 import { UserThreadIndex } from './component/UserThreadIndex';
+import { ThreadSearchResult } from './component/ThreadSearchResult';
 
 export const LoginedUser = createContext(null);
 
@@ -45,6 +46,7 @@ const App = ()=>{
               <Route exact path={"/"} component={TopPage}/>
               <Route path={"/login"} component={LoginForm}/>
               <Route path={"/register"} component={UserCreateForm}/>
+              <Route path={"/thread/search/:keyword"} component={ThreadSearchResult}/>
               <Route path={"/thread/:id"} component={ThreadPage}/>
               <Route path={"/user/:id/edit"} component={UserEditForm}/>
               <Route path={"/user/:id/thread"} component={UserThreadIndex}/>
