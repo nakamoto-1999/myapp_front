@@ -9,6 +9,12 @@ const ThreadIndex = (props)=>{
     const threads = useContext(Threads);
 
     return<div className="bg-light container p-3">
+        {threads.length === 0 && 
+            <div className="text-center text-secondary" 
+            style={{fontSize : "16px"}}>
+                スレッドが存在しません。
+            </div>
+        }
         {
             threads.map((thread)=>{
                 if(!thread.deleted)

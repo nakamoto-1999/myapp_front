@@ -48,7 +48,8 @@ export const ThreadConcludeForm = (props) => {
             <div>
                 <div className="text-center">
                     <span className="text-center" {...getToggleProps()}>
-                        {isExpanded ?<BsFillCaretUpFill/> : <BsFillCaretDownFill/>}
+                        {isExpanded ?
+                            <BsFillCaretUpFill/> : <BsFillCaretDownFill/>}
                     </span>
                 </div>
                 <section {...getCollapseProps()}>

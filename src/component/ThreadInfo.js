@@ -84,7 +84,7 @@ const ThreadInfo = (props)=>{
             {thread.concluded && thread.concludedColor !== null &&
                 <div className="p-3 rounded bg-light" style={{ minHeight : "100px"}}>
                     <div style={{lineHeight : "30px" , letterSpacing : "2px"}}>
-                        <p style={{fontSize : "25px" , color : thread.concludedColor.name}}>
+                        <p style={{fontSize : "18px" , color : thread.concludedColor.name}}>
                             <strong>
                                 このスレッドには
                                     {
@@ -92,7 +92,7 @@ const ThreadInfo = (props)=>{
                                         thread.concludedColor.colorId === 3 && <span>青</span>
                                     }
                                 
-                                評決が下されました。
+                                の評決が下されました。
                             </strong>
                         </p>
                         {thread.conclusionReason &&

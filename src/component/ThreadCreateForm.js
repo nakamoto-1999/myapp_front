@@ -94,11 +94,11 @@ export const ThreadCreateForm = (props)=>{
                                     style = {{minHeight : "100px"}} value = {point}
                                 />
                                 <label style = {{color : "red"}}>
-                                    <strong>赤</strong>
+                                    <strong>赤のポジション</strong>
                                 </label>
                                 <input id="red" className="form-control" onChange={changeRed} value = {red} style = {{color : "red"}}/>
                                 <label style = {{color : "blue"}}>
-                                    <strong>青</strong>
+                                    <strong>青のポジション</strong>
                                 </label>
                                 <input id="blue" className="form-control" onChange={changeBlue} value = {blue} style = {{color : "blue"}}/>
                             </div>

@@ -16,6 +16,7 @@ import { api } from './api';
 import { Admin } from './component/Admin';
 import { TopPage } from './component/TopPage';
 import { ThreadPage } from './component/ThreadPage';
+import { UserThreadIndex } from './component/UserThreadIndex';
 
 export const LoginedUser = createContext(null);
 
@@ -46,6 +47,7 @@ const App = ()=>{
               <Route path={"/register"} component={UserCreateForm}/>
               <Route path={"/thread/:id"} component={ThreadPage}/>
               <Route path={"/user/:id/edit"} component={UserEditForm}/>
+              <Route path={"/user/:id/thread"} component={UserThreadIndex}/>
               <Route path={"/admin"} component={Admin}/>
               <Route path={"*"} component={NotFound}/>
             </Switch>

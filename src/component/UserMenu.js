@@ -1,6 +1,6 @@
 import userEvent from "@testing-library/user-event";
 import { useContext, useEffect, useRef, useState } from "react";
-import { BsPencil, BsPersonCircle } from "react-icons/bs";
+import { BsCardList, BsPencil, BsPersonCircle } from "react-icons/bs";
 import {BiLogOut, BiTrash} from "react-icons/bi"
 import { LoginedUser } from "../App";
 import { Link, useHistory } from "react-router-dom";
@@ -24,6 +24,11 @@ const UserMenu = (props) => {
     const toEdit = (e) => {
         e.preventDefault();     
         history.push(`/user/${loginUser.userId}/edit`);
+    }
+
+    const toThredIndex = (e)=>{
+        e.preventDefault();
+        history.push(`/user/${loginUser.userId}/thread`);
     }
 
     return<span>
@@ -50,6 +55,10 @@ const UserMenu = (props) => {
                             </strong>
                         </li>
 
+                        <li className="list-group-item list-group-item-action" onClick={toThredIndex}>
+                            <BsCardList size={19}/>&nbsp;スレッド
+                        </li>
+
                         <li className="list-group-item list-group-item-action" onClick={toEdit}>
                             <BsPencil size={19}/>&nbsp;編集
                         </li>
@@ -61,6 +70,7 @@ const UserMenu = (props) => {
                         <li className="list-group-item list-group-item-action">
                             <DeleteUser userId = {loginUser.userId}/>
                         </li>
+
 
                     </ul>
                 }

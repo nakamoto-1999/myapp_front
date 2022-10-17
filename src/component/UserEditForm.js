@@ -14,14 +14,13 @@ const UserEditForm = (props)=>{
         api.get(`/auth/user/${props.match.params.id}`)
         .then(res => {
             //データが有効なものなければ404エラーに遷移
-            res.data.valid ?
+            !res.data.deleted ?
                 setUser(res.data)
             :
                 window.location.replace("/not-found");
         })
         .catch(err => {
-            //データが取得できなければ404エラーに遷移
-            window.location.replace("/not-found");
+            window.location.replace("/");
         });
     } , []);
 

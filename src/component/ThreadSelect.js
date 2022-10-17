@@ -34,11 +34,8 @@ const ThreadSelect = ()=>{
 
     return<div>
         <H content={"スレッド一覧"}/>
-
         <Threads.Provider value={threads}>
-            <div style={{paddingBottom : "150px"}}>
-                <ThreadIndex/>
-            </div>
+            <ThreadIndex/>
         </Threads.Provider>
 
         {loginUser !== null &&

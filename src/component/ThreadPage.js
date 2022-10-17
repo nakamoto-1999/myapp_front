@@ -57,7 +57,11 @@ export const ThreadPage = (props) => {
                         <div className="container w-100 fixed-bottom p-3" style={{backgroundColor : "lemonchiffon"}}>
                             {loginUser !== null && 
                                 <div>
-                                    {!thread.closed && <PostCreateForm/>}
+                                    {!thread.closed && 
+                                        <div style={{marginBottom : "12px"}}>
+                                            <PostCreateForm/>
+                                        </div>
+                                    }
                                     {!thread.concluded && loginUser.userId === thread.user.userId &&
                                         <ThreadConcludeForm/>
                                     }
