@@ -48,7 +48,6 @@ import { LoadThread, Thread } from "./ThreadPage";
     }
 
     return<div>
-    <label>レスの投稿</label>
     {thread !== null && loginUser !== null &&
         <form className="form">
                 <div className="form-group">

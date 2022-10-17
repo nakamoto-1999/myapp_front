@@ -6,6 +6,7 @@ import ToBottomButton from "./ToBottomButton";
 import { api } from "../api";
 import { LoginedUser } from "../App";
 import { ReloadFunc } from "../context";
+import { ThreadConcludeForm } from "./ThreadConcludeForm";
 
 export const Thread = createContext(null);
 export const LoadThread = createContext(()=>{});
@@ -58,7 +59,7 @@ export const ThreadPage = (props) => {
                                 <div>
                                     {!thread.closed && <PostCreateForm/>}
                                     {!thread.concluded && loginUser.userId === thread.user.userId &&
-                                        <div>評決フォーム</div>
+                                        <ThreadConcludeForm/>
                                     }
                                 </div>
                             }

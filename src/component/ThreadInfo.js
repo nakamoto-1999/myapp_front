@@ -81,7 +81,7 @@ const ThreadInfo = (props)=>{
                     })
                 }
 
-            {thread.concluded && thread.concludedColor !== null && thread.concludedReason !== null &&
+            {thread.concluded && thread.concludedColor !== null &&
                 <div className="p-3 rounded bg-light" style={{ minHeight : "100px"}}>
                     <div style={{lineHeight : "30px" , letterSpacing : "2px"}}>
                         <p style={{fontSize : "25px" , color : thread.concludedColor.name}}>
@@ -95,14 +95,16 @@ const ThreadInfo = (props)=>{
                                 評決が下されました。
                             </strong>
                         </p>
-                        <p>
-                            <div>
-                                <strong>（評決理由）</strong>
-                            </div>
-                            <div>
-                                {thread.conclusionReason}
-                            </div>
-                        </p>
+                        {thread.conclusionReason &&
+                            <p>
+                                <div>
+                                    <strong>（評決理由）</strong>
+                                </div>
+                                <div>
+                                    {thread.conclusionReason}
+                                </div>
+                            </p>
+                        }
                     </div>
                 </div>
             }
