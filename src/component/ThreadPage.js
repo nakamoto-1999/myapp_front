@@ -20,7 +20,7 @@ export const ThreadPage = (props) => {
     const loadThread = ()=>{
         api.get(`/thread/${props.match.params.id}`)
         .then(res => {
-            console.log(res.data);
+            //console.log(res.data);
             //データが無効なものであるならば404エラーに遷移
             !res.data.deleted ?
                 setThread(res.data)

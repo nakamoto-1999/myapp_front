@@ -63,13 +63,14 @@ const Post = (props) =>{
                         </span>
                 } 
                 &emsp;
-                {thread.user.userId === loginUser.userId &&
-                thread.user.userId !== post.user.userId &&
-                post.user.role.name !== "ADMIN" &&
-                !thread.closed && !thread.concluded &&
-                    <span>
-                        <BlockUserButton user = {post.user}/>
-                    </span>
+                {loginUser !== null &&
+                    thread.user.userId === loginUser.userId &&
+                    thread.user.userId !== post.user.userId &&
+                    post.user.role.name !== "ADMIN" &&
+                    !thread.closed && !thread.concluded &&
+                        <span>
+                            <BlockUserButton user = {post.user}/>
+                        </span>
                 }
             </div>
 
