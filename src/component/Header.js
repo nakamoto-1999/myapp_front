@@ -33,7 +33,7 @@ const Header = ()=>{
     }
 
     return<header className="fixed-top shadow p-2" 
-        style={{minHeight : "50px", backgroundColor : "tan" , "zIndex" : 1 ,
+        style={{minHeight : "50px", backgroundColor : "tan" , "zIndex" : 0 ,
         display : "flex"}}>
 
         <div style={{fontSize : "20px" , fontFamily : "Kokoro" , color : "maroon"}} onClick={toTop}>
