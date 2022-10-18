@@ -77,7 +77,7 @@ export const ThreadCreateForm = (props)=>{
                             <BsFillXSquareFill size = "30" />
                         </span>
 
-                        <form className="form p-4 overflow-auto" style={{height : "180px"}}>
+                        <form className="form p-4 overflow-auto" style={{maxHeight : "180px"}}>
                             <div className="form-group">
                                 <label style={{color : "black"}}>
                                     <strong>議題の概要</strong>
