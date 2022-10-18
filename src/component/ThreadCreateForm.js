@@ -61,7 +61,7 @@ export const ThreadCreateForm = (props)=>{
 
     return<div>
 
-        <div style={{position : "fixed" , right : "10px" , bottom : "20px" , zIndex : 2}}>
+        <div style={{position : "fixed" , right : "10px" , bottom : "20px" , zIndex : 1}}>
             <button className="rounded btn btn-primary p-2" {...getToggleProps()}
                 disabled={isExpanded || loginUser !== null && !loginUser.permitted}>
                 <BsPlus size = {30}/>
@@ -74,7 +74,7 @@ export const ThreadCreateForm = (props)=>{
                     <div className="container rounded" style={{backgroundColor : "wheat"}}>
 
                         <span {...getToggleProps()}>
-                            <BsFillXSquareFill size = "30"/>
+                            <BsFillXSquareFill size = "30" />
                         </span>
 
                         <form className="form p-4" disabled={loginUser !== null && !loginUser.permitted}>
