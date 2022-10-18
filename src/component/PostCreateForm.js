@@ -52,6 +52,7 @@ import { LoadThread, Thread } from "./ThreadPage";
     {thread !== null && loginUser !== null &&
         <form className="form">
                 <div className="form-group">
+                    <label>レスの投稿</label>
                     {thread.user.userId !== loginUser.userId &&
                         <select className="form-control" onChange={changeColorId}
                             disabled={!loginUser.permitted ||isUserIdExist(thread.blockedUsers , loginUser.userId)}

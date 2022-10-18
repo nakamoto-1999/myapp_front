@@ -56,7 +56,7 @@ export const ThreadPage = (props) => {
                         <ThreadInfo/>
                         <div className="container w-100 fixed-bottom" style={{backgroundColor : "lemonchiffon"}}>
                             {loginUser !== null && 
-                                <div className="p-3 overflow-auto" style={{height : "180px"}}>
+                                <div className="p-3 overflow-auto" style={{height : "190px"}}>
                                     {!thread.closed && 
                                         <div style={{marginBottom : "12px"}}>
                                             <PostCreateForm/>
