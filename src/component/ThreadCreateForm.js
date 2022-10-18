@@ -71,13 +71,13 @@ export const ThreadCreateForm = (props)=>{
         <div className="w-100 fixed-bottom" style={{zIndex : 1}}>
             <section {...getCollapseProps()}>
 
-                    <div className="container rounded" style={{backgroundColor : "wheat"}}>
+                    <div className="overflow-auto container rounded" style={{backgroundColor : "wheat" }}>
 
                         <span {...getToggleProps()}>
                             <BsFillXSquareFill size = "30" />
                         </span>
 
-                        <form className="form p-4" disabled={loginUser !== null && !loginUser.permitted}>
+                        <form className="form p-4 overflow-auto" style={{height : "180px"}}>
                             <div className="form-group">
                                 <label style={{color : "black"}}>
                                     <strong>議題の概要</strong>

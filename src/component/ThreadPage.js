@@ -54,9 +54,9 @@ export const ThreadPage = (props) => {
                 <Thread.Provider value={thread}>
                     <LoadThread.Provider value={loadThread}>
                         <ThreadInfo/>
-                        <div className="container w-100 fixed-bottom p-3" style={{backgroundColor : "lemonchiffon"}}>
+                        <div className="container w-100 fixed-bottom" style={{backgroundColor : "lemonchiffon"}}>
                             {loginUser !== null && 
-                                <div>
+                                <div className="p-3 overflow-auto" style={{height : "180px"}}>
                                     {!thread.closed && 
                                         <div style={{marginBottom : "12px"}}>
                                             <PostCreateForm/>
