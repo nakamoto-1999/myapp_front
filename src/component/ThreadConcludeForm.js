@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import useCollapse from "react-collapsed";
 import { BiMenu } from "react-icons/bi";
-import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
+import { BsFillCaretDownFill, BsFillCaretUpFill, BsList, BsX } from "react-icons/bs";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { api } from "../api";
 import { LoginedUser } from "../App";
@@ -49,7 +49,7 @@ export const ThreadConcludeForm = (props) => {
                 <div className="text-center">
                     <span className="text-center" {...getToggleProps()}>
                         {isExpanded ?
-                            <BsFillCaretUpFill/> : <BsFillCaretDownFill/>}
+                            <BsX size={30}/> : <BsList size={25}/>}
                     </span>
                 </div>
                 <section {...getCollapseProps()}>

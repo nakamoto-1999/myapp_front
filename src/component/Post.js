@@ -45,7 +45,7 @@ const Post = (props) =>{
                         :
                             post.user.name
                         }
-                        {post.color.colorId === 1 && <span>（陪審者）</span> ||
+                        {post.color.colorId === 1 && <span>（スレ主）</span> ||
                         post.color.colorId === 2 && <span>（{thread.red}）</span> ||
                         post.color.colorId === 3 && <span>（{thread.blue}）</span>
                         }
@@ -55,19 +55,16 @@ const Post = (props) =>{
                     </span>           
                 </span>
                 &emsp;
-                {loginUser !== null &&
-                    (loginUser.role.name === "ADMIN" || loginUser.userId === post.user.userId)&&
-                    !thread.closed && !thread.concluded &&
-                        <span>
-                            <DeleteButton onClick = {deletePost}/>
-                        </span>
+                {loginUser !== null && loginUser.role.name === "ADMIN" &&
+                    <span>
+                        <DeleteButton onClick = {deletePost}/>
+                    </span>
                 } 
                 &emsp;
                 {loginUser !== null &&
                     thread.user.userId === loginUser.userId &&
                     thread.user.userId !== post.user.userId &&
                     post.user.role.name !== "ADMIN" &&
-                    !thread.closed && !thread.concluded &&
                         <span>
                             <BlockUserButton user = {post.user}/>
                         </span>

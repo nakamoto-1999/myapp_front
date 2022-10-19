@@ -42,8 +42,8 @@ const ThreadInfo = (props)=>{
                         <span>{thread.createdAt}</span>
                         &emsp;
                         {loginUser !== null &&
-                        (loginUser.role.name === "ADMIN" || loginUser.userId === thread.user.userId)&&
-                         !thread.closed && !thread.concluded &&
+                        (loginUser.role.name === "ADMIN" || !thread.closed && !thread.concluded  
+                        && loginUser.userId === thread.user.userId)&&
                             <DeleteButton onClick = {deleteThread}/>
                         }
                     </div>
