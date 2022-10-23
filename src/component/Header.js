@@ -37,7 +37,7 @@ const Header = ()=>{
         display : "flex"}}>
 
         <div style={{fontSize : "20px" , fontFamily : "Kokoro" , color : "maroon"}} onClick={toTop}>
-            訴訟ごっこ.com
+            訴訟ごっこ.net
         </div>
         
         <div style={{margin : "0 0 0 auto"}}>
