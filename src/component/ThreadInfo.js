@@ -86,7 +86,7 @@ const ThreadInfo = (props)=>{
                     <div style={{lineHeight : "30px" , letterSpacing : "2px"}}>
                         <p style={{fontSize : "18px" , color : thread.concludedColor.name}}>
                             <strong>
-                                このスレッドには
+                                スレ主によって
                                     {
                                         thread.concludedColor.colorId === 2 && <span>赤</span> ||
                                         thread.concludedColor.colorId === 3 && <span>青</span>
