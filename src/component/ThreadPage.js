@@ -40,13 +40,13 @@ export const ThreadPage = (props) => {
             <div>
 
                 <div style={{position : "fixed"
-                ,right : "20px",top : "80px", zIndex : 1 }}>
+                ,right : "20px",top : "125px", zIndex : 1 }}>
                     <ToBottomButton/>
                 </div>
 
                 {!thread.closed &&
                     <div style={{position : "fixed"
-                    ,left : "20px",top : "80px", zIndex : 1 }}>
+                    ,left : "20px",top : "125px", zIndex : 1 }}>
                         <ReloadButton func = {loadThread}/>
                     </div>
                 }
