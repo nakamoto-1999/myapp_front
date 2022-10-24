@@ -51,6 +51,12 @@ import { LoadThread, Thread } from "./ThreadPage";
     return<div>
     {thread !== null && loginUser !== null &&
         <form className="form">
+                {isUserIdExist(thread.blockedUsers , loginUser.userId) &&
+                    <div className="p-1 text-center text-danger bg-light"
+                    style={{fontSize : "15px"}}>
+                        <strong>スレ主によってブロックされています。</strong>
+                    </div>
+                }
                 <div className="form-group">
                     <label>レスの投稿</label>
                     {thread.user.userId !== loginUser.userId &&

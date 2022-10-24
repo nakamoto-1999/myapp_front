@@ -18,7 +18,7 @@ export const ThreadSearchResult = (props)=>{
         .catch(err => {
             window.location.replace("/");
         })
-    }, [])
+    });
 
     return<div className="p-2 container bg-light">
         <H content = {`"${props.match.params.keyword}"の検索結果`}/>
