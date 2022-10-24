@@ -21,7 +21,7 @@ export const ThreadSearchResult = (props)=>{
     }, [])
 
     return<div className="p-2 container bg-light">
-        <H content = {`${props.match.params.keyword}の検索結果`}/>
+        <H content = {`"${props.match.params.keyword}"の検索結果`}/>
         <Threads.Provider value={threads}>
             <ThreadIndex/>
         </Threads.Provider>
