@@ -47,7 +47,7 @@ export const ThreadConcludeForm = (props) => {
         {loginUser !== null && thread !== null &&
             <div>
                 <div className="text-center">
-                    <span className="text-center" {...getToggleProps()}>
+                    <span {...getToggleProps()}>
                         {isExpanded ?
                             <BsX size={30}/> : <BsList size={25}/>}
                     </span>
