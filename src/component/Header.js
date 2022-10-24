@@ -66,7 +66,7 @@ const Header = ()=>{
 
         </div>
 
-        <div style={{marginTop : "5px"}}>
+        <div style={{marginTop : "5px" , marginBottom : "5px"}}>
             <ThreadSearchForm/>
         </div>
         
