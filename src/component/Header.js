@@ -4,6 +4,7 @@ import useCollapse from "react-collapsed";
 import { Link, useHistory } from "react-router-dom";
 import { LoginedUser } from "../App";
 import SquareButton from "./SquareButton";
+import { TestLoginButton } from "./TestLoginButton";
 import { ThreadSearchForm } from "./ThreadSearchForm";
 import UserMenu from "./UserMenu";
 

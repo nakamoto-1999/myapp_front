@@ -9,6 +9,7 @@ import { login } from "../utility/LoginUtility.ts";
 import { isEmpty } from "../utility/ValidationUtility.ts";
 import { H } from "./H";
 import { NoAuthorization } from "./NoAuthorization";
+import { TestLoginButton } from "./TestLoginButton";
 
 const LoginForm = ()=>{
 
@@ -61,8 +62,17 @@ const LoginForm = ()=>{
     }
 
     return<div className="container w-100 bg-light p-3">
+
         <NoAuthorization redirect = "/"/>
-        <H content={"Login"}/>
+
+        <div style={{marginBottom : "32px"}}>
+            <H content={"Login"}/>
+        </div>
+
+        <div className="text-center" style={{marginBottom : "64px"}}>
+            <TestLoginButton/>
+        </div>
+
         <form className="form">
             <div className="form-group">
                 <label>Email</label>
@@ -81,7 +91,8 @@ const LoginForm = ()=>{
                 </button>
             </div>
         </form>
-    </div>;
+
+    </div>
 }
 
 
