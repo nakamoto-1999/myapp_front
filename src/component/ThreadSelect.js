@@ -32,7 +32,7 @@ const ThreadSelect = ()=>{
     
     useEffect(loadThreads, []);
 
-    return<div>
+    return<div className="border-top" style={{paddingTop : "16px"}}>
         <H content={"スレッド一覧"}/>
         <Threads.Provider value={threads}>
             <ThreadIndex/>

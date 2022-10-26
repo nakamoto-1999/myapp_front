@@ -8,11 +8,11 @@ const ThreadIndex = (props)=>{
 
     const threads = useContext(Threads);
 
-    return<div className="bg-light container p-3">
+    return<div className="bg-light container">
         {
             threads.map((thread)=>{
                 if(!thread.deleted)
-                    return<div className="p-2 position-relative" style={{minHeight : "100px", borderTop : "1px solid silver"}}> 
+                    return<div className="position-relative" style={{minHeight : "100px", borderTop : "1px solid silver"}}> 
                         <div>
                             <strong style={{"fontSize" : "20px"}}>
                                 {thread.overview.length > 20 ?
