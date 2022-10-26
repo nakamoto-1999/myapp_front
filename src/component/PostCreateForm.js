@@ -53,7 +53,7 @@ import { ThreadPageFormMessage } from "./ThreadPageFormMessage";
     {thread !== null && loginUser !== null &&
         <div>
             {isUserIdExist(thread.blockedUsers , loginUser.userId) &&   
-                <ThreadPageFormMessage message = "スレ主にブロックされています。" color="text-danger"/>
+                <ThreadPageFormMessage message = {<strong>スレ主によってブロックされています。</strong>} color="text-danger"/>
             }
             <form className="form">
                     <div className="form-group">
