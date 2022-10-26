@@ -38,11 +38,11 @@ export const BlockUserButton = (props) => {
     return<span>
         {console.log(isUserIdExist(thread.blockedUsers , postUser.userId))}
         {thread !== null && postUser !== null &&
-            <button className="btn btn-danger"
+            <button className="rounded-pill btn btn-sm btn-danger"
                 onClick={!isUserIdExist(thread.blockedUsers , postUser.userId)? blockUser : unblockUser  }
                 style={{opacity : !isUserIdExist(thread.blockedUsers , postUser.userId)? 1.0 : 0.5}}
             >
-                <BiBlock size={15}/>
+                ブロック
             </button>
         }
     </span>

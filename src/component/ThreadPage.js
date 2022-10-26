@@ -7,6 +7,7 @@ import { api } from "../api";
 import { LoginedUser } from "../App";
 import { ReloadFunc } from "../context";
 import { ThreadConcludeForm } from "./ThreadConcludeForm";
+import { ThreadPageForms } from "./ThreadPageForms";
 
 export const Thread = createContext(null);
 export const LoadThread = createContext(()=>{});
@@ -57,14 +58,7 @@ export const ThreadPage = (props) => {
                         <div className="container w-100 fixed-bottom p-3" style={{backgroundColor : "lemonchiffon"}}>
                             {loginUser !== null && 
                                 <div className="overflow-auto" style={{maxHeight : "190px"}}>
-                                    {!thread.closed && 
-                                        <div style={{marginBottom : "12px"}}>
-                                            <PostCreateForm/>
-                                        </div>
-                                    }
-                                    {!thread.concluded && loginUser.userId === thread.user.userId &&
-                                        <ThreadConcludeForm/>
-                                    }
+                                    <ThreadPageForms/>
                                 </div>
                             }
                         </div>

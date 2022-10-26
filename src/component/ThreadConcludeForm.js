@@ -9,8 +9,6 @@ import { LoadThread, Thread } from "./ThreadPage";
 
 export const ThreadConcludeForm = (props) => {
 
-    const {getCollapseProps , getToggleProps , isExpanded} = useCollapse();
-
     const history = useHistory();
 
     const loginUser = useContext(LoginedUser);
@@ -46,31 +44,23 @@ export const ThreadConcludeForm = (props) => {
     return<div>
         {loginUser !== null && thread !== null &&
             <div>
-                <div className="text-center">
-                    <span {...getToggleProps()}>
-                        {isExpanded ?
-                            <BsX size={30}/> : <BsList size={25}/>}
-                    </span>
-                </div>
-                <section {...getCollapseProps()}>
-                    <form className="form">
-                        <div className="form-group">
-                            <label>評決</label>
-                            <select className="form-control" onChange={changeColorId}>
-                                <option className="bg-danger" value={2}>赤</option>
-                                <option className="bg-primary" value={3}>青</option>
-                            </select>
-                            <label>評決に至った理由（任意）</label>
-                            <textarea id="content" className="form-control" onChange={changeReason}
+                <form className="form">
+                    <div className="form-group">
+                        <label>評決</label>
+                        <select className="form-control" onChange={changeColorId}>
+                            <option className="bg-danger" value={2}>赤</option>
+                            <option className="bg-primary" value={3}>青</option>
+                        </select>
+                        <label>評決に至った理由（任意）</label>
+                        <textarea id="content" className="form-control" onChange={changeReason}
                                 style={{minHeight : "90px"}} value = {reason}
-                            />
-                        </div>
-                        <button className="btn btn-danger w-25" onClick={submit} 
-                            style={{minHeight : "40px"}}>
-                            評決
-                        </button>
-                    </form>
-                </section>
+                        />
+                    </div>
+                    <button className="btn btn-danger w-25" onClick={submit} 
+                        style={{minHeight : "40px"}}>
+                        評決
+                    </button>
+                </form>
             </div>
         }
     </div>

@@ -47,7 +47,7 @@ const ThreadInfo = (props)=>{
                             <DeleteButton onClick = {deleteThread}/>
                         }
                     </div>
-                    <div style={{lineHeight : "30px" , letterSpacing : "2px"}}>
+                    <div style={{lineHeight : "25px" , letterSpacing : "1px"}}>
                         <p>
                             {thread.overview}
                         </p>
@@ -83,7 +83,7 @@ const ThreadInfo = (props)=>{
 
             {thread.concluded && thread.concludedColor !== null &&
                 <div className="p-3 rounded bg-light" style={{ minHeight : "100px"}}>
-                    <div style={{lineHeight : "30px" , letterSpacing : "2px"}}>
+                    <div style={{lineHeight : "25px" , letterSpacing : "1px"}}>
                         <p style={{fontSize : "18px" , color : thread.concludedColor.name}}>
                             <strong>
                                 スレ主によって

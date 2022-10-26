@@ -72,7 +72,7 @@ const Post = (props) =>{
                 }
             </div>
 
-            <div style={{lineHeight : "30px" ,letterSpacing : "2px"}}>
+            <div style={{lineHeight : "25px" ,letterSpacing : "1px"}}>
                 {post.content}
             </div>
         </div>
