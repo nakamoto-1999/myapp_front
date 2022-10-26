@@ -61,10 +61,16 @@ export const ThreadPage = (props) => {
                         <div className="container w-100 fixed-bottom p-3" style={{backgroundColor : "lemonchiffon"}}>
                           
                             {!thread.closed && loginUser === null &&
-                                <ThreadPageFormMessage message={<div><Link to="/login">ログイン</Link>してください。</div>}/> 
+                                <ThreadPageFormMessage message={<span><Link to="/login">ログイン</Link>してください。</span>}/> 
                             }
 
-                            {thread.closed && <ThreadPageFormMessage message={"閉鎖済みのスレッドです。"}/>}
+                            {thread.closed && <ThreadPageFormMessage message={<span>閉鎖済みのスレッドです。</span>} color = "text-secondary"/>}
+
+                            {loginUser !== null &&
+                            thread.closed && !thread.concluded &&
+                            loginUser.userId === thread.user.userId &&
+                                <ThreadPageFormMessage message={<strong>スレ主は評決を行ってください。</strong>} color= "text-success"/>
+                            }
                             
                             {loginUser !== null&&
                              (!thread.closed || !thread.concluded &&loginUser.userId === thread.user.userId) &&
