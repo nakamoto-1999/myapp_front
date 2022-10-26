@@ -6,6 +6,7 @@ import { LoginedUser } from "../App";
 import { ReloadFunc } from "../context";
 import { isUserIdExist } from "../utility/UserUtility";
 import { LoadThread, Thread } from "./ThreadPage";
+import { ThreadPageFormMessage } from "./ThreadPageFormMessage";
 
  function PostCreateForm(props){
 
@@ -50,35 +51,34 @@ import { LoadThread, Thread } from "./ThreadPage";
 
     return<div>
     {thread !== null && loginUser !== null &&
-        <form className="form">
-                {isUserIdExist(thread.blockedUsers , loginUser.userId) &&
-                    <div className="p-1 text-center text-danger bg-light"
-                    style={{fontSize : "15px"}}>
-                        <strong>スレ主によってブロックされています。</strong>
-                    </div>
-                }
-                <div className="form-group">
-                    <label>レスの投稿</label>
-                    {thread.user.userId !== loginUser.userId &&
-                        <select className="form-control" onChange={changeColorId}
+        <div>
+            {isUserIdExist(thread.blockedUsers , loginUser.userId) &&   
+                <ThreadPageFormMessage message = "スレ主にブロックされています。" color="text-danger"/>
+            }
+            <form className="form">
+                    <div className="form-group">
+                        <label>レスの投稿</label>
+                        {thread.user.userId !== loginUser.userId &&
+                            <select className="form-control" onChange={changeColorId}
+                                disabled={!loginUser.permitted ||isUserIdExist(thread.blockedUsers , loginUser.userId)}
+                            >
+                                <option className="bg-danger" value={2}>赤</option>
+                                <option className="bg-primary" value={3}>青</option>
+                            </select>
+                        }
+                        <textarea id="content" className="form-control" onChange={changeContent}
+                            style={{minHeight : "90px"}} value={content}
                             disabled={!loginUser.permitted ||isUserIdExist(thread.blockedUsers , loginUser.userId)}
-                        >
-                            <option className="bg-danger" value={2}>赤</option>
-                            <option className="bg-primary" value={3}>青</option>
-                        </select>
-                    }
-                    <textarea id="content" className="form-control" onChange={changeContent}
-                        style={{minHeight : "90px"}} value={content}
-                        disabled={!loginUser.permitted ||isUserIdExist(thread.blockedUsers , loginUser.userId)}
-                    />
-                </div>
-                <button className="btn btn-primary w-25" onClick={submit} 
-                    style={{minHeight : "40px"}} disabled={content === ""}>
-                    <BiSend size={25}/>
-                </button>
-        </form>
+                        />
+                    </div>
+                    <button className="btn btn-primary w-25" onClick={submit} 
+                        style={{minHeight : "40px"}} disabled={content === ""}>
+                        <BiSend size={25}/>
+                    </button>
+            </form>
+        </div>
     }
-    </div>;
+    </div>
 }
 
 export default PostCreateForm;

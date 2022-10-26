@@ -8,6 +8,9 @@ import { LoginedUser } from "../App";
 import { ReloadFunc } from "../context";
 import { ThreadConcludeForm } from "./ThreadConcludeForm";
 import { ThreadPageForms } from "./ThreadPageForms";
+import { ThreadPageFormMessage } from "./ThreadPageFormMessage";
+import { isUserIdExist } from "../utility/UserUtility";
+import { Link } from "react-router-dom";
 
 export const Thread = createContext(null);
 export const LoadThread = createContext(()=>{});
@@ -56,11 +59,18 @@ export const ThreadPage = (props) => {
                     <LoadThread.Provider value={loadThread}>
                         <ThreadInfo/>
                         <div className="container w-100 fixed-bottom p-3" style={{backgroundColor : "lemonchiffon"}}>
-                            {loginUser !== null && 
-                                <div className="overflow-auto" style={{maxHeight : "190px"}}>
-                                    <ThreadPageForms/>
-                                </div>
+                          
+                            {!thread.closed && loginUser === null &&
+                                <ThreadPageFormMessage message={<div><Link to="/login">ログイン</Link>してください。</div>}/> 
                             }
+
+                            {thread.closed && <ThreadPageFormMessage message={"閉鎖済みのスレッドです。"}/>}
+                            
+                            {loginUser !== null&&
+                             (!thread.closed || !thread.concluded &&loginUser.userId === thread.user.userId) &&
+                                <ThreadPageForms/>
+                            }
+                            
                         </div>
                     </LoadThread.Provider>
                 </Thread.Provider>
