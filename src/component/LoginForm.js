@@ -85,9 +85,9 @@ const LoginForm = ()=>{
                 <div class="text-danger">{errForPass}</div>
             </div>
             <div className="form-group">
-                <button className="form-control btn w-25 btn-primary" onClick={submit} 
+                <button className="form-control btn w-50 btn-primary" onClick={submit} 
                 disabled={!isEmailValidated || !isPassValidated}>
-                    <BiSend size={25}/>
+                    ログイン
                 </button>
             </div>
         </form>

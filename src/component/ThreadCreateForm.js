@@ -71,13 +71,17 @@ export const ThreadCreateForm = (props)=>{
         <div className="w-100 fixed-bottom" style={{zIndex : 1}}>
             <section {...getCollapseProps()}>
 
-                    <div className="overflow-auto container rounded" style={{backgroundColor : "wheat" }}>
+                    <div className="container rounded" style={{backgroundColor : "wheat" }}>
 
                         <span {...getToggleProps()}>
                             <BsFillXSquareFill size = "30" />
                         </span>
 
-                        <form className="form p-4 overflow-auto" style={{maxHeight : "180px"}}>
+                        <div className="text-center text-secondary" style={{marginBottom : "10px"}}>
+                            スレッドを開廷
+                        </div>
+
+                        <form className="form p-2 overflow-auto" style={{maxHeight : "180px"}}>
                             <div className="form-group">
                                 <label style={{color : "black"}}>
                                     <strong>議題の概要</strong>
@@ -102,9 +106,9 @@ export const ThreadCreateForm = (props)=>{
                                 </label>
                                 <input id="blue" className="form-control" onChange={changeBlue} value = {blue} style = {{color : "blue"}}/>
                             </div>
-                            <button className="btn btn-primary w-25" onClick={submit} 
+                            <button className="btn btn-danger w-50" onClick={submit} 
                                 disabled={(overview === "" || point === "" || red === "" || blue === "")}>
-                                <BiSend size={25}/>
+                                開廷
                             </button>
                         </form>
 

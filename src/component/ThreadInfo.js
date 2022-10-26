@@ -66,9 +66,9 @@ const ThreadInfo = (props)=>{
                         </p>
                         <div className = "text-muted" style={{fontSize : "15px"}}>
                             {thread.closed ? 
-                                    <div>閉鎖済みのスレッドです。</div>
+                                    <div>閉廷済みのスレッドです。</div>
                                         :
-                                    <div>このスレッドは、{thread.finishAt}頃に閉鎖されます。</div>
+                                    <div>このスレッドは、{thread.finishAt}頃に閉廷されます。</div>
                             }
                         </div>
                     </div>

@@ -64,12 +64,12 @@ export const ThreadPage = (props) => {
                                 <ThreadPageFormMessage message={<span><Link to="/login">ログイン</Link>してください。</span>}/> 
                             }
 
-                            {thread.closed && <ThreadPageFormMessage message={<span>閉鎖済みのスレッドです。</span>} color = "text-secondary"/>}
+                            {thread.closed && <ThreadPageFormMessage message={<span>閉廷済みのスレッドです。</span>} color = "text-secondary"/>}
 
                             {loginUser !== null &&
                             thread.closed && !thread.concluded &&
                             loginUser.userId === thread.user.userId &&
-                                <ThreadPageFormMessage message={<strong>スレ主は評決を行ってください。</strong>} color= "text-success"/>
+                                <ThreadPageFormMessage message={<strong>陪審員は評決を行ってください。</strong>} color= "text-success"/>
                             }
                             
                             {loginUser !== null&&

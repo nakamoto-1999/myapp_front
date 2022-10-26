@@ -45,7 +45,7 @@ const Post = (props) =>{
                         :
                             post.user.name
                         }
-                        {post.color.colorId === 1 && <span>（スレ主）</span> ||
+                        {post.color.colorId === 1 && <span>（陪審員）</span> ||
                         post.color.colorId === 2 && <span>（{thread.red}）</span> ||
                         post.color.colorId === 3 && <span>（{thread.blue}）</span>
                         }

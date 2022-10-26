@@ -181,10 +181,10 @@ const UserForm = (props)=>{
                 </div>
             </div>
             <div className="form-group">
-                <button className="form-control btn w-25 btn-primary" onClick={submit}
+                <button className="form-control btn w-50 btn-primary" onClick={submit}
                 disabled ={!isNameValidated || !isEmailValidated || !isPassValidated 
                 || !isPassConfValidated}>
-                    <BiSend size={25}/>
+                    新規登録
                 </button>
             </div>
         </form>
