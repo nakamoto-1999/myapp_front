@@ -1,16 +1,27 @@
+import { useContext } from "react";
 import useCollapse from "react-collapsed"
 import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
 import { Link } from "react-router-dom"
+import { LoginedUser } from "../App";
 import { H } from "./H"
+import { TestLoginButton } from "./TestLoginButton";
 
 export const Introduction = (props) => {
+
+    const loginUser = useContext(LoginedUser);
 
     const {getCollapseProps ,getToggleProps ,isExpanded} = useCollapse();
 
     return<div style={{marginBottom : "32px"}}>
-        <div style={{marginBottom : "16px"}}>
+        <div style={{marginBottom : "32px"}}>
             <H content = "訴訟ごっこ.netへようこそ！"/>
         </div>
+
+        {!loginUser && 
+            <div className="text-center" style={{marginBottom : "32px"}}>
+                <TestLoginButton/>
+            </div>
+        }
 
         <section {...getCollapseProps()}>
             <div style={{fontSize : "18px" , lineHeight : "30px"}}>
@@ -39,7 +50,14 @@ export const Introduction = (props) => {
 
         <div className="text-center" style={{marginBottom : "16px"}}>
             <span {...getToggleProps()}>
-                {isExpanded ? <BsFillCaretUpFill size={20}/> : <BsFillCaretDownFill size={20}/>}
+                {isExpanded ? 
+                    <BsFillCaretUpFill size={20}/> 
+                    : 
+                    <div>
+                        <div>(アプリの説明)</div>
+                        <div><BsFillCaretDownFill size={20}/></div>
+                    </div>
+                }
             </span>
         </div>
         

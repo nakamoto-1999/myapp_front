@@ -9,7 +9,6 @@ export const login = (email:String , password:String) =>{
         window.location.replace("/");
     })
     .catch(err => {
-        err.response.status === 401 &&
         window.alert("ログインに失敗しました。");
     });
  }
