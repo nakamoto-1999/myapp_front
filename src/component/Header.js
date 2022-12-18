@@ -38,7 +38,7 @@ const Header = ()=>{
 
         <div className="p-1" style={{display : "flex"}}>
 
-            <img onClick={toTop} src={`${process.env.PUBLIC_URL}/logo.png`}/>
+            <img onClick={toTop} src={`${process.env.PUBLIC_URL}/logo.png`} alt={"訴訟ごっこ.net"}/>
             
             <div style={{margin : "0 0 0 auto"}}>
                 {loginUser !== null?
