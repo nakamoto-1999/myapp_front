@@ -7,10 +7,13 @@ export const DeleteUser = (props) => {
 
     const deleteUser = (e)=>{
         e.preventDefault();
-        api.delete(`/auth/user/${props.userId}/delete`)
-        .then(res=>{
-            logout();
-        });
+        if(window.confirm("アカウントを削除しますか？")){
+            api.delete(`/auth/user/${props.userId}/delete`)
+            .then(res=>{
+                logout();
+            });
+        }
+      
     }
 
     return<span onClick={deleteUser}>
