@@ -8,7 +8,6 @@ import { TestLoginButton } from "./TestLoginButton";
 import { ThreadSearchForm } from "./ThreadSearchForm";
 import UserMenu from "./UserMenu";
 
-
 const Header = ()=>{
 
     const loginUser = useContext(LoginedUser);
@@ -39,9 +38,7 @@ const Header = ()=>{
 
         <div className="p-1" style={{display : "flex"}}>
 
-            <div style={{fontSize : "20px" , fontFamily : "Kokoro" , color : "maroon"}} onClick={toTop}>
-                訴訟ごっこ.net
-            </div>
+            <img onClick={toTop} src={`${process.env.PUBLIC_URL}/logo.png`}/>
             
             <div style={{margin : "0 0 0 auto"}}>
                 {loginUser !== null?

@@ -184,7 +184,7 @@ const UserForm = (props)=>{
                 <button className="form-control btn w-50 btn-primary" onClick={submit}
                 disabled ={!isNameValidated || !isEmailValidated || !isPassValidated 
                 || !isPassConfValidated}>
-                    新規登録
+                    <BiSend size={25}/>
                 </button>
             </div>
         </form>
