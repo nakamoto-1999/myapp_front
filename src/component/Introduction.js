@@ -14,7 +14,7 @@ export const Introduction = (props) => {
 
     return<div style={{marginBottom : "32px"}}>
         <div style={{marginBottom : "32px"}}>
-            <H content = "訴訟ごっこ.netへようこそ！"/>
+            <H content = "訴訟ごっこへようこそ！"/>
         </div>
 
         {!loginUser && 
@@ -25,26 +25,37 @@ export const Introduction = (props) => {
 
         <section {...getCollapseProps()}>
             <div style={{fontSize : "18px" , lineHeight : "30px"}}>
-                <div>
-                    <label>（アプリの概要）</label>
-                </div>
-                <p>
-                    「訴訟ごっこ.net」は、裁判を模した<strong>論争特化の掲示板アプリ</strong>です。
-                    <br/>ユーザーは、スレッドの議題に対して、<strong style={{color : "red"}}>赤</strong>と<strong style={{color : "blue"}}>青</strong>
-                    の立場から主張をぶつけ合います。
-                    スレッドを立てた人は、<strong>陪審員</strong>として、論争の行く末を見守りつつ、最終的にどちらの立場を支持するかの<strong>評決</strong>を行ってください。
-                    <br/><strong>このアプリは、ネット上で誰かと論戦をしたい方々に、最適な場所を提供する目的で作成されたものです。</strong>
-                </p>
-                <div>
-                    <label>（使用用途）</label>
-                </div>
-                <p>
-                    スレッドを立てたり、レスを投稿するためには、<Link to={"/register"}><strong>アカウント登録</strong></Link>並びに<Link to={"/login"}><strong>ログイン</strong></Link>を行う必要があります。
-                    <br/>スレッドは、右下の<strong>+ボタン</strong>から立てることができます。
-                    <br/>レスの投稿・評決は、各スレッドの<strong>下方</strong>に設けられた<strong>専用フォーム</strong>から行ってください。
-                    <br/><strong>陪審員</strong>は、迷惑ユーザーなどを<strong>スレッド単位でブロック</strong>することが可能です。ブロックされたユーザーは、<strong>当該スレッドへのレスの投稿が制限</strong>されます。
-                    <br/>スレッドは、<strong>レス数が1000に到達</strong>したこと、スレッドを立ててから<strong>一定期間が経過</strong>したことを理由に、自動的に<strong>閉廷</strong>されます。<strong>閉廷後は、当該スレッドへのレスの投稿が不可能となりますのでご注意ください。</strong>
-                </p>
+                <ul>
+                    <li style={{marginBottom : "30px"}}>
+                        <strong>「訴訟ごっこ」</strong>は、<strong>レスバトル</strong>や<strong>ディベート</strong>に特化した
+                        <strong>模擬裁判型</strong>掲示板サイトです。
+                    </li>
+                    <li style={{marginBottom : "30px"}}>
+                        各スレッドの議題や論点に従って、<strong style={{color:"red"}}>赤</strong>・<strong style={{color:"blue"}}>青</strong>
+                        いずれかの立場から意見を返信してください。
+                    </li>
+                    <li style={{marginBottom : "30px"}}>
+                        スレッド主は、その他ユーザーによるレスのやり取りについて、<strong>自由な心証に基づき</strong>、<strong style={{color:"red"}}>赤</strong>・<strong style={{color:"blue"}}>青</strong>
+                        いずれかの評決を下すことができます。
+                    </li>
+                    <li style={{marginBottom : "30px"}}>
+                        スレッドを立てたり、レスを投稿するためには、<Link to={"/register"}><strong>アカウント登録</strong></Link>
+                        並びに<Link to={"/login"}><strong>ログイン</strong></Link>を行う必要があります。
+                    </li>
+                    <li style={{marginBottom : "30px"}}>
+                        スレッドは、右下の<strong>+ボタン</strong>から立てることができます。
+                    </li>
+                    <li style={{marginBottom : "30px"}}>
+                        レスの投稿・評決は、各スレッドの<strong>下方</strong>に設けられた<strong>専用フォーム</strong>から行ってください。
+                    </li>
+                    <li style={{marginBottom : "30px"}}>
+                        スレッド主は、特定のユーザーをスレッドから<strong>ブロック</strong>して追放することが可能です。
+                    </li>
+                    <li style={{marginBottom : "30px"}}>
+                        スレッドは、レス数が<strong>1000</strong>に到達したこと、スレッドを立ててから<strong>1年</strong>が経過したことを理由に、自動的に<strong>閉廷</strong>されます。
+                        <strong>閉廷後は、スレッドへのレスの投稿が不可能となります。</strong>
+                    </li>
+                </ul>
             </div>
         </section>
 
@@ -54,7 +65,7 @@ export const Introduction = (props) => {
                     <BsFillCaretUpFill size={20}/> 
                     : 
                     <div>
-                        <div>(アプリの説明)</div>
+                        <div>(サイトの説明)</div>
                         <div><BsFillCaretDownFill size={20}/></div>
                     </div>
                 }
