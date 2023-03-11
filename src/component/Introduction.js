@@ -27,7 +27,7 @@ export const Introduction = (props) => {
             <div style={{fontSize : "18px" , lineHeight : "30px"}}>
                 <ul>
                     <li style={{marginBottom : "30px"}}>
-                        <strong>「訴訟ごっこ」</strong>は、<strong>レスバトル</strong>や<strong>ディベート</strong>に特化した
+                        <strong>「訴訟ごっこ」</strong>は、<strong>ディベート</strong>に特化した
                         <strong>模擬裁判型</strong>掲示板サイトです。
                     </li>
                     <li style={{marginBottom : "30px"}}>
