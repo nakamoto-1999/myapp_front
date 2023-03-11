@@ -62,8 +62,8 @@ import { ThreadPageFormMessage } from "./ThreadPageFormMessage";
                             <select className="form-control" onChange={changeColorId}
                                 disabled={!loginUser.permitted ||isUserIdExist(thread.blockedUsers , loginUser.userId)}
                             >
-                                <option className="bg-danger" value={2}>赤</option>
-                                <option className="bg-primary" value={3}>青</option>
+                                <option className="bg-danger" value={2}>{thread.red}</option>
+                                <option className="bg-primary" value={3}>{thread.blue}</option>
                             </select>
                         }
                         <textarea id="content" className="form-control" onChange={changeContent}
