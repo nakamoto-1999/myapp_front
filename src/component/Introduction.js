@@ -46,7 +46,7 @@ export const Introduction = (props) => {
                         スレッドは、右下の<strong>+ボタン</strong>から立てることができます。
                     </li>
                     <li style={{marginBottom : "30px"}}>
-                        レスの投稿・評決は、各スレッドの<strong>下方</strong>に設けられた<strong>専用フォーム</strong>から行ってください。
+                        レスの投稿・評決は、各スレッドの<strong>下方</strong>に設けられたフォームから行ってください。
                     </li>
                     <li style={{marginBottom : "30px"}}>
                         スレッド主は、特定のユーザーをスレッドから<strong>ブロック</strong>して追放することが可能です。

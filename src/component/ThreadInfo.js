@@ -57,11 +57,11 @@ const ThreadInfo = (props)=>{
                         <br/>
                         <p style={{fontSize : "20px"}}>
                             <span style={{color : "red"}}>
-                                赤：<strong>{thread.red}</strong>
+                                <strong>{thread.red}</strong>
                             </span>
                             &emsp;
                             <span style={{color : "blue"}}>
-                                青：<strong>{thread.blue}</strong>
+                                <strong>{thread.blue}</strong>
                             </span>
                         </p>
                         <div className = "text-muted" style={{fontSize : "15px"}}>
