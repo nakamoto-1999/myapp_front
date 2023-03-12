@@ -108,7 +108,9 @@ export const ThreadCreateForm = (props)=>{
                             </div>
                             <button className="btn btn-danger w-50" onClick={submit} 
                                 disabled={(overview === "" || point === "" || red === "" || blue === "")}>
-                                開廷
+                                <strong>
+                                    開廷
+                                </strong>
                             </button>
                         </form>
 

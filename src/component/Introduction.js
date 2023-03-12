@@ -4,13 +4,27 @@ import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
 import { Link } from "react-router-dom"
 import { LoginedUser } from "../App";
 import { H } from "./H"
-import { TestLoginButton } from "./TestLoginButton";
+import SquareButton from "./SquareButton";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { loginWithTest } from "../utility/LoginUtility.ts";
 
 export const Introduction = (props) => {
 
     const loginUser = useContext(LoginedUser);
 
     const {getCollapseProps ,getToggleProps ,isExpanded} = useCollapse();
+
+    const history = useHistory();
+
+    const toLogin = (e) => {
+        e.preventDefault();
+        history.push("/login");
+    }
+
+    const toRegister = (e) => {
+        e.preventDefault();
+        history.push("/register");
+    }
 
     return<div style={{marginBottom : "32px"}}>
         <div style={{marginBottom : "32px"}}>
@@ -19,7 +33,18 @@ export const Introduction = (props) => {
 
         {!loginUser && 
             <div className="text-center" style={{marginBottom : "32px"}}>
-                <TestLoginButton/>
+                <div style={{marginBottom : "16px"}}>
+                    <SquareButton value = "登録" color = "success" size = "lg"
+                    w = "75" onClick = {toRegister}/>
+                </div>
+                <div style={{marginBottom : "16px"}}>
+                    <SquareButton value = "ログイン" color = "primary" size = "lg"
+                    w = "75" onClick = {toLogin}/>
+                </div>
+                <div style={{marginBottom : "16px"}}>
+                    <SquareButton value = "テストユーザー" color = "info" size = "lg"
+                    w = "75" onClick = {loginWithTest}/>
+                </div>
             </div>
         }
 

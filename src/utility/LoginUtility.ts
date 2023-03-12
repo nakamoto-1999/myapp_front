@@ -22,5 +22,14 @@ export const logout = ()=>{
 }
 
 
+export const loginWithTest = (e) =>{ 
+    e.preventDefault();
+    login(
+        process.env.REACT_APP_TEST_USER_EMAIL || "test@localhost.com" , 
+        process.env.REACT_APP_TEST_USER_PSWD || "abcd7771"
+    );
+}
+
+
 
 

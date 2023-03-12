@@ -6,8 +6,11 @@ import Link from "react-scroll/modules/components/Link";
 
 const SquareButton = (props)=>{
 
-    return<button className={`btn btn-${props.color}`} onClick={props.onClick}>
-        {props.value}
+    return<button className={`btn btn-${props.color} btn-${props.size} w-${props.w}`}
+     onClick={props.onClick}>
+        <strong>
+            {props.value}
+        </strong>
     </button>;
 }
 

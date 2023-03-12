@@ -58,7 +58,9 @@ export const ThreadConcludeForm = (props) => {
                     </div>
                     <button className="btn btn-danger w-25" onClick={submit} 
                         style={{minHeight : "40px"}}>
-                        評決
+                        <strong>
+                            評決
+                        </strong>
                     </button>
                 </form>
             </div>

@@ -9,7 +9,8 @@ import { login } from "../utility/LoginUtility.ts";
 import { isEmpty } from "../utility/ValidationUtility.ts";
 import { H } from "./H";
 import { NoAuthorization } from "./NoAuthorization";
-import { TestLoginButton } from "./TestLoginButton";
+import { loginWithTest } from "../utility/LoginUtility.ts";
+import SquareButton from "./SquareButton";
 
 const LoginForm = ()=>{
 
@@ -70,7 +71,9 @@ const LoginForm = ()=>{
         </div>
 
         <div className="text-center" style={{marginBottom : "64px"}}>
-            <TestLoginButton/>
+            <SquareButton value = "テストユーザー" color = "info" size = "lg"
+                w = "75" onClick = {loginWithTest}/>
+                
         </div>
 
         <form className="form">
@@ -87,7 +90,9 @@ const LoginForm = ()=>{
             <div className="form-group">
                 <button className="form-control btn w-50 btn-primary" onClick={submit} 
                 disabled={!isEmailValidated || !isPassValidated}>
-                    ログイン
+                    <strong>
+                        ログイン
+                    </strong>
                 </button>
             </div>
         </form>
