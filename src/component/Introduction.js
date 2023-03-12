@@ -28,9 +28,7 @@ export const Introduction = (props) => {
 
     return<div style={{marginBottom : "32px"}}>
         <div style={{marginBottom : "32px"}}>
-            <strong>
-                <H content = "訴訟ごっこへようこそ！"/>
-            </strong>           
+            <H content = "訴訟ごっこへようこそ！"/>          
         </div>
 
         {!loginUser && 
